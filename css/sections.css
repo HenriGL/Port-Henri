@@ -1,0 +1,157 @@
+/* =========================================================
+   Sections
+   ========================================================= */
+section{padding:96px var(--gutter)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,9vw,128px);align-items:center}
+.split p{max-width:590px}
+
+/* ---------- Hero ----------
+   .hero-wrap is a tall scroll track. The hero sticks to the top while:
+   1) scroll 0 → 60vh: the blue photo wipes in over the red one (js/scroll.js)
+   2) scroll 50 → 150vh: the content (.overlap) slides up over the hero        */
+.hero-wrap{position:relative;height:250vh}
+.hero{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+/* Keep the photos' 1440x855 ratio so the baked-in title is never cropped */
+.hero__media{position:relative;width:100%;aspect-ratio:1440/855;max-height:100svh;overflow:hidden;transform-origin:50% 30%;will-change:transform}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__img--a{transform:scale(1.15);opacity:0;animation:heroIn 2s var(--ease) .1s forwards}
+.hero__img--b{clip-path:inset(100% 0 0 0);will-change:clip-path,transform}
+/* Glowing seam that rides the wipe edge */
+.hero__edge{position:absolute;left:0;right:0;top:100%;height:2px;opacity:0;pointer-events:none;
+  background:linear-gradient(90deg,transparent,#d6ecff 20%,#fff 50%,#d6ecff 80%,transparent);box-shadow:0 0 30px 8px rgba(140,195,255,.45)}
+/* Progressive blur at the bottom of the photo (stacked layers, like the reference) */
+.hero__blur{position:absolute;left:0;right:0;bottom:0;height:28%;pointer-events:none}
+.hero__blur i{position:absolute;inset:0}
+.hero__blur i:nth-child(1){backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);mask:linear-gradient(transparent 0%,#000 30%,#000 100%);-webkit-mask:linear-gradient(transparent 0%,#000 30%,#000 100%)}
+.hero__blur i:nth-child(2){backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);mask:linear-gradient(transparent 30%,#000 60%,#000 100%);-webkit-mask:linear-gradient(transparent 30%,#000 60%,#000 100%)}
+.hero__blur i:nth-child(3){backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);mask:linear-gradient(transparent 60%,#000 100%);-webkit-mask:linear-gradient(transparent 60%,#000 100%)}
+.hero__shade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+.hero__scroll{position:absolute;left:50%;bottom:28px;translate:-50% 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:0;animation:fade 1s 1.6s forwards;display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero__scroll i{width:1px;height:40px;background:linear-gradient(#fff,transparent);animation:scrollLine 1.8s ease-in-out infinite}
+
+/* Content that slides over the sticky hero */
+.overlap{position:relative;z-index:2;margin-top:-100vh;background:var(--color-bg-primary);border-radius:32px 32px 0 0;box-shadow:0 -40px 80px rgba(0,0,0,.55)}
+
+/* ---------- About ---------- */
+#about{padding-top:96px}
+.about-copy p+p{margin-top:20px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:72px}
+.stat{border-top:1px solid var(--color-border-default);padding-top:24px;position:relative}
+.stat::before{content:"";position:absolute;top:-1px;left:0;height:1px;width:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease) .2s}
+.stat.in::before{transform:scaleX(1)}
+.stat .h1{margin-bottom:8px}
+.actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
+
+/* ---------- Experience — vertical timeline ----------
+   --p (0→1) is set by js/scroll.js as the list crosses the viewport;
+   the brand line grows with it and each dot lights up as the line passes. */
+.xp{--p:0;--dot-x:338px;position:relative;margin-top:72px;border-bottom:1px solid var(--color-border-default)}
+.xp__line{position:absolute;top:45px;bottom:0;left:calc(var(--dot-x) - .5px);width:1px;background:var(--color-border-default);pointer-events:none}
+.xp__line::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--color-text-brand),#fff);transform:scaleY(var(--p));transform-origin:top}
+.xrow{display:grid;grid-template-columns:300px 12px 1fr auto;gap:32px;align-items:start;padding:32px 0;border-top:1px solid var(--color-border-default);position:relative}
+.xrow::before{content:"";position:absolute;top:-1px;left:0;height:1px;width:100%;background:var(--color-text-brand);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.xrow:hover::before{transform:scaleX(1)}
+.xrow__when{display:flex;flex-direction:column;gap:4px;padding-top:9px;color:var(--color-text-tertiary)}
+.xrow__when .body-s{color:inherit}
+.xrow__dot{position:relative;z-index:1;width:12px;height:12px;margin-top:13px;border-radius:50%;background:var(--color-bg-primary);border:1px solid var(--color-border-default);
+  transition:background .5s var(--ease),border-color .5s var(--ease),transform .5s var(--spring)}
+.xrow__dot.lit{background:#fff;border-color:#fff}
+.xrow:hover .xrow__dot{transform:scale(1.4)}
+.xrow__main{display:flex;flex-direction:column;gap:8px;min-width:0}
+.xrow__main .body-m{max-width:720px}
+.xrow__main .tags{padding-top:8px}
+.xrow:hover .tag{border-color:#fff;color:#fff}
+.xrow__type{justify-self:end;margin-top:8px}
+/* Current role: brand period + pulsing brand dot with a subtle ring */
+.xrow.is-current .xrow__when .body-m{color:var(--color-text-brand)}
+.xrow.is-current .xrow__dot,.xrow.is-current .xrow__dot.lit{background:var(--color-bg-brand);border-color:var(--color-bg-brand);box-shadow:0 0 0 4px var(--color-bg-brand-subtle)}
+.xrow.is-current .xrow__dot::after{content:"";position:absolute;inset:-1px;border-radius:50%;background:var(--color-text-brand);animation:ping 2s ease-out infinite}
+
+/* ---------- Work process ---------- */
+.process{display:grid;grid-template-columns:repeat(3,1fr);margin-top:72px}
+.pbox{border:1px solid var(--color-border-strong);padding:32px;display:flex;flex-direction:column;gap:40px;min-height:259px;background:var(--color-bg-primary);transition:background .5s var(--ease),color .5s var(--ease)}
+.pbox:nth-child(1){grid-column:1;grid-row:1}
+.pbox:nth-child(2){grid-column:2;grid-row:2;margin:-1px 0 0 -1px}
+.pbox:nth-child(3){grid-column:3;grid-row:1;margin-left:-2px}
+.num{width:54px;height:54px;display:grid;place-items:center;background:var(--color-bg-inverse);color:var(--color-text-inverse);font-size:32px;font-weight:700;transition:background .5s,color .5s}
+.pbox p{font-size:16px;font-weight:500;margin-top:24px;max-width:372px}
+.pbox:hover{background:#fff;color:#000}
+.pbox:hover .num{background:#000;color:#fff}
+
+/* ---------- Projects ---------- */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:72px 24px;margin-top:72px}
+.card{display:flex;flex-direction:column;gap:24px}
+.cover{--z:1.25;position:relative;aspect-ratio:642/420;overflow:hidden;padding:32px;display:flex;align-items:flex-end;transition:--h 1s var(--ease)}
+/* --z = scroll zoom (set by js/scroll.js), --h = hover zoom */
+.cover::before{content:"";position:absolute;inset:0;background:var(--g);transform:perspective(1200px) scale(calc(var(--z) * var(--h)))}
+.cover::after{content:attr(data-view);position:absolute;right:32px;bottom:32px;padding:12px 20px;border-radius:100px;background:#fff;color:#000;font-size:14px;font-weight:500;transform:translateY(20px) scale(.9);opacity:0;transition:all .5s var(--ease)}
+.cover span{position:relative;font-size:14px;font-weight:500}
+.card:hover .cover{--h:1.06}
+.card:hover .cover::after{transform:none;opacity:1}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.card:hover .tag{border-color:#fff;color:#fff}
+.card:hover .link .arrow{transform:translateX(6px)}
+.center{display:flex;justify-content:center;margin-top:72px}
+
+/* ---------- Toolkit — hover paints the box white, no movement ---------- */
+.tools{display:grid;grid-template-columns:repeat(4,1fr);margin-top:72px}
+.tool{border:1px solid var(--color-border-strong);margin:0 -1px -1px 0;padding:32px;min-height:240px;display:flex;flex-direction:column;justify-content:space-between;transition:background-color .3s,color .3s}
+.tool__top{display:flex;justify-content:space-between;align-items:flex-start}
+.mono{width:54px;height:54px;display:grid;place-items:center;background:#fff;color:#000;font-size:24px;font-weight:700;transition:background-color .3s,color .3s}
+.tool .subtle{transition:color .3s}
+.tool:hover{background:#fff;color:#000}
+.tool:hover .mono{background:#000;color:#fff}
+.tool:hover .subtle{color:#4E4E4E}
+
+/* ---------- Education ---------- */
+.edu{margin-top:72px;border-bottom:1px solid var(--color-border-default)}
+.erow{display:grid;grid-template-columns:300px 1fr auto;gap:32px;align-items:center;padding:32px 0;border-top:1px solid var(--color-border-default);position:relative;transition:padding .5s var(--ease)}
+.erow::before{content:"";position:absolute;top:-1px;left:0;height:1px;width:100%;background:var(--color-text-brand);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.erow:hover{padding-left:16px;padding-right:16px}
+.erow:hover::before{transform:scaleX(1)}
+.erow .body-m{margin-top:8px}
+
+/* ---------- CTA ---------- */
+.cta{padding:144px var(--gutter);background:linear-gradient(120deg,#410001 0%,#A51700 45%,#FF5545 75%,#A51700 100%);background-size:220% 220%;animation:gradient 14s ease-in-out infinite alternate;overflow:hidden}
+.cta h2{margin:64px 0;text-transform:uppercase;line-height:.94;transform-origin:left center;will-change:transform}
+.cta__bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap}
+.cta__bottom p{max-width:590px}
+
+/* ---------- Footer ---------- */
+footer{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:32px var(--gutter);border-top:1px solid var(--color-border-default)}
+footer nav{display:flex;gap:32px;flex-wrap:wrap}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .tools{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:820px){
+  section{padding:72px var(--gutter)}
+  .split,.projects{grid-template-columns:1fr}
+  .split{gap:24px}
+  .process{grid-template-columns:1fr}
+  .pbox:nth-child(n){grid-column:1;grid-row:auto;margin:-1px 0 0 0}
+  .erow{grid-template-columns:1fr;gap:12px}
+  .erow .tag{justify-self:start}
+  /* Timeline moves to the left edge: dot column + content column */
+  .xp{--dot-x:6px}
+  .xrow{grid-template-columns:12px 1fr;gap:12px 20px}
+  .xrow__dot{grid-column:1;grid-row:1;margin-top:4px}
+  .xrow__when,.xrow__main,.xrow__type{grid-column:2}
+  .xrow__when{grid-row:1;padding-top:0}
+  .xrow__type{justify-self:start;margin-top:4px}
+  .xp__line{top:42px}
+  .nav{gap:4px;justify-content:flex-start}
+  .nav a{min-width:0;padding:0 12px}
+  .cta{padding:96px var(--gutter)}
+  /* Mobile: no scroll track — the two photos cross-fade on their own */
+  .hero-wrap{height:auto}
+  .hero{position:relative;height:auto}
+  .hero__img--b{clip-path:none;opacity:0;animation:xfade 9s ease-in-out 2.5s infinite}
+  .hero__edge,.hero__scroll{display:none}
+  .overlap{margin-top:-24px;border-radius:24px 24px 0 0}
+}
+@media (max-width:480px){
+  .tools,.stats{grid-template-columns:1fr}
+}

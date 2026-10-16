@@ -1,0 +1,42 @@
+/* =========================================================
+   Design tokens — mirror the Figma "Semantic" collection
+   ========================================================= */
+:root{
+  /* Background */
+  --color-bg-primary:#000000;
+  --color-bg-secondary:#1E1E1E;
+  --color-bg-surface:#292929;
+  --color-bg-inverse:#FFFFFF;
+  --color-bg-brand:#A51700;
+  --color-bg-brand-subtle:#410001;
+
+  /* Text */
+  --color-text-primary:#FFFFFF;
+  --color-text-secondary:#D0D0D0;
+  --color-text-tertiary:#A2A2A2;
+  --color-text-inverse:#000000;
+  --color-text-brand:#FF5545;
+
+  /* Action */
+  --color-action-primary-default:#FFFFFF;
+  --color-action-primary-label:#000000;
+  --color-action-secondary-border:#FFFFFF;
+  --color-action-secondary-label:#FFFFFF;
+  --color-action-link-accent:#A51700;
+
+  /* Border */
+  --color-border-default:#4E4E4E;
+  --color-border-strong:#FFFFFF;
+
+  /* Type & layout */
+  --font:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(16px,4.6vw,66px);
+  --max:1308px;
+
+  /* Motion */
+  --ease:cubic-bezier(.22,1,.36,1);
+  --spring:cubic-bezier(.16,1,.3,1);
+}
+
+/* Animatable number used to combine scroll zoom (--z) with hover zoom (--h) */
+@property --h{syntax:"<number>";inherits:true;initial-value:1}

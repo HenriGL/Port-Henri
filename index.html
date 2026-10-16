@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Henri Guasti — UI & UX Design</title>
+<meta name="description" content="Henri Guasti — Product Designer com foco em UI & UX. Experiência, projetos selecionados, processo, ferramentas e formação.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/images/img-hero.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/motion.css">
+</head>
+<body>
+
+<header class="nav" id="nav" aria-label="Principal">
+  <a href="#home" data-i18n="nav.home">Início</a>
+  <a href="#about" data-i18n="nav.about">Sobre</a>
+  <a href="#projects" data-i18n="nav.projects">Projetos</a>
+</header>
+
+<main>
+  <!-- HERO — sticky; the blue photo wipes in on scroll, then the content slides over it -->
+  <div class="hero-wrap" id="home">
+    <section class="hero" style="padding:0">
+      <div class="hero__media">
+        <img class="hero__img hero__img--a" src="assets/images/img-hero.png" alt="Henri Guasti — UI &amp; UX Design. Retrato em luz vermelha." data-i18n-alt="hero.alt">
+        <img class="hero__img hero__img--b" src="assets/images/img-hero2.png" alt="" aria-hidden="true">
+        <div class="hero__edge" aria-hidden="true"></div>
+        <div class="hero__blur" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="hero__shade" aria-hidden="true"></div>
+      </div>
+      <h1 class="sr-only">Henri Guasti — UI &amp; UX Design</h1>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="pt" aria-pressed="true" lang="pt-BR">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+      <div class="hero__scroll" aria-hidden="true"><span data-i18n="hero.scroll">Role</span><i></i></div>
+    </section>
+  </div>
+
+  <div class="overlap">
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="split">
+          <h2 class="h4 reveal-left" data-i18n="about.title">SOBRE MIM</h2>
+          <div class="about-copy body-m reveal-right">
+            <p data-i18n="about.p1">Com mais de 5 anos de experiência em design, atualmente atuo como Product Designer. Minha abordagem une visão estratégica e rigor técnico para transformar problemas complexos em soluções intuitivas, sempre equilibrando as necessidades dos usuários com os objetivos do negócio.</p>
+            <p data-i18n="about.p2">Além das telas e dos ecossistemas do Figma, Framer e Illustrator, encontro equilíbrio nos games, em filmes e séries imersivos e em momentos de qualidade com as pessoas próximas.</p>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat reveal" style="--d:0s"><div class="h1"><span class="count" data-to="1">0</span>+</div><p class="body-m subtle" data-i18n="stat.1">Anos criando produtos digitais</p></div>
+          <div class="stat reveal" style="--d:.1s"><div class="h1"><span class="count" data-to="15">0</span>+</div><p class="body-m subtle" data-i18n="stat.2">Projetos entregues para web</p></div>
+          <div class="stat reveal" style="--d:.2s"><div class="h1"><span class="count" data-to="2">0</span>+</div><p class="body-m subtle" data-i18n="stat.3">Marcas e empresas atendidas</p></div>
+          <div class="stat reveal" style="--d:.3s"><div class="h1"><span class="count" data-to="3">0</span></div><p class="body-m subtle" data-i18n="stat.4">Áreas de foco: Produto, UI e Branding</p></div>
+        </div>
+        <div class="actions reveal">
+          <a class="btn" href="#"><span data-i18n="btn.cv">Baixar CV</span> <span class="arrow">→</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/henriguastilorentz/" target="_blank" rel="noopener">LinkedIn <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE — timeline draws itself on scroll (js/scroll.js) -->
+    <section id="experience" style="padding-top:0">
+      <div class="wrap">
+        <div class="split">
+          <h2 class="display-l reveal-line" data-drift><span class="line"><span data-i18n="xp.title">EXPERIÊNCIA</span></span></h2>
+          <p class="body-m reveal-right" data-i18n="xp.desc">Empresas e times em que ajudei a construir produtos digitais — de ideias em estágio inicial a experiências escaláveis.</p>
+        </div>
+        <div class="xp" id="xp"><div class="xp__line" aria-hidden="true"></div><div id="xp-list"></div></div>
+      </div>
+    </section>
+
+    <!-- WORK PROCESS -->
+    <section id="process" style="padding-top:0">
+      <div class="wrap">
+        <div class="split">
+          <h2 class="display-l reveal-line" data-drift><span class="line"><span data-i18n="process.t1">MEU</span></span><span class="line"><span style="--d:.1s" data-i18n="process.t2">PROCESSO</span></span></h2>
+          <p class="body-m reveal-right" data-i18n="process.desc">Veja como meu processo transforma sua marca com soluções de design sob medida, que geram impacto mensurável desde o primeiro dia.</p>
+        </div>
+        <div class="process">
+          <article class="pbox reveal" data-speed="0"><div class="num">01</div><div><h3 class="h2" data-i18n="process.1.t">Pesquisa &amp; Definição</h3><p data-i18n="process.1.d">Começamos entendendo o problema, os usuários e os objetivos do negócio, do início ao fim.</p></div></article>
+          <article class="pbox reveal" style="--d:.3s" data-speed=".14"><div class="num">02</div><div><h3 class="h2" data-i18n="process.2.t">Ideação &amp; Design</h3><p data-i18n="process.2.d">Criamos fluxos claros e intuitivos e interfaces de alta fidelidade.</p></div></article>
+          <article class="pbox reveal" style="--d:.15s" data-speed=".07"><div class="num">03</div><div><h3 class="h2" data-i18n="process.3.t">Teste &amp; Implementação</h3><p data-i18n="process.3.d">Refinamos a solução final, testamos a usabilidade e entregamos os arquivos para o desenvolvimento.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="split">
+          <h2 class="display-l reveal-line" data-drift><span class="line"><span data-i18n="projects.t1">PROJETOS</span></span><span class="line"><span style="--d:.1s" data-i18n="projects.t2">SELECIONADOS</span></span></h2>
+          <p class="body-m reveal-right" data-i18n="projects.desc">Uma seleção de cases em que pesquisa, estratégia e design de interface se uniram para resolver problemas reais — e mover os números que importam.</p>
+        </div>
+        <div class="projects">
+          <a class="card reveal" href="#">
+            <div class="cover" style="--g:linear-gradient(127deg,#410001,#A51700)"><span>01</span></div>
+            <div class="tags"><span class="tag" data-i18n="tag.product">Design de Produto</span><span class="tag">B2B SaaS</span></div>
+            <h3 class="h2" data-i18n="p1.t">Redesign de Dashboard Fintech</h3>
+            <p class="body-m muted" data-i18n="p1.d">Repensando uma plataforma financeira B2B complexa: nova arquitetura de informação, visualização de dados mais clara e um caminho mais rápido para decisões importantes.</p>
+            <span class="link"><span data-i18n="link.case">Ver estudo de caso</span> <span class="arrow">→</span></span>
+          </a>
+          <a class="card reveal" href="#" style="--d:.15s">
+            <div class="cover" style="--g:linear-gradient(127deg,#2D1600,#D47B00)"><span>02</span></div>
+            <div class="tags"><span class="tag" data-i18n="tag.research">Pesquisa UX</span></div>
+            <h3 class="h2" data-i18n="p2.t">Experiência de App de Delivery</h3>
+            <p class="body-m muted" data-i18n="p2.d">Redesign completo do fluxo de pedidos de um app de delivery de comida, da descoberta e pesquisa até interfaces mobile de alta fidelidade.</p>
+            <span class="link"><span data-i18n="link.case">Ver estudo de caso</span> <span class="arrow">→</span></span>
+          </a>
+          <a class="card reveal" href="#">
+            <div class="cover" style="--g:linear-gradient(127deg,#1E1E1E,#930005)"><span>03</span></div>
+            <div class="tags"><span class="tag">Design System</span><span class="tag">Web</span></div>
+            <h3 class="h2" data-i18n="p3.t">Design System Escalável</h3>
+            <p class="body-m muted" data-i18n="p3.d">Criação de um design system baseado em tokens no Figma que unificou três produtos e reduziu pela metade o tempo de handoff entre design e desenvolvimento.</p>
+            <span class="link"><span data-i18n="link.case">Ver estudo de caso</span> <span class="arrow">→</span></span>
+          </a>
+          <a class="card reveal" href="#" style="--d:.15s">
+            <div class="cover" style="--g:linear-gradient(127deg,#690003,#FF5545)"><span>04</span></div>
+            <div class="tags"><span class="tag">Branding</span><span class="tag">Framer</span></div>
+            <h3 class="h2" data-i18n="p4.t">Marca &amp; Site em Framer</h3>
+            <p class="body-m muted" data-i18n="p4.d">Identidade visual e um site de alta performance construído em Framer para um estúdio criativo, com motion e interações desenvolvidos internamente.</p>
+            <span class="link"><span data-i18n="link.case">Ver estudo de caso</span> <span class="arrow">→</span></span>
+          </a>
+        </div>
+        <div class="center reveal"><a class="btn" href="#"><span data-i18n="btn.all">Ver todos os projetos</span> <span class="arrow">→</span></a></div>
+      </div>
+    </section>
+
+    <!-- TOOLKIT -->
+    <section id="toolkit">
+      <div class="wrap">
+        <div class="split">
+          <h2 class="display-l reveal-line" data-drift><span class="line"><span data-i18n="tools.title">FERRAMENTAS</span></span></h2>
+          <p class="body-m reveal-right" data-i18n="tools.desc">As ferramentas que uso todos os dias para pesquisar, criar, prototipar e entregar — do primeiro rascunho ao handoff final.</p>
+        </div>
+        <div class="tools" id="tools"></div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="wrap">
+        <div class="split">
+          <h2 class="display-l reveal-line" data-drift><span class="line"><span data-i18n="edu.title">FORMAÇÃO</span></span></h2>
+          <p class="body-m reveal-right" data-i18n="edu.desc">Formação acadêmica, cursos e certificações que moldaram minha forma de pensar design — e o aprendizado contínuo que mantém tudo afiado.</p>
+        </div>
+        <div class="edu" id="edu"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div class="wrap">
+        <span class="badge overline reveal"><i></i><span data-i18n="cta.badge">Disponível para novos projetos</span></span>
+        <h2 class="display-xl reveal-line">
+          <span class="line"><span data-i18n="cta.t1">Vamos criar</span></span>
+          <span class="line"><span style="--d:.1s" data-i18n="cta.t2">algo</span></span>
+          <span class="line"><span style="--d:.2s" data-i18n="cta.t3">juntos</span></span>
+        </h2>
+        <div class="cta__bottom">
+          <div class="reveal-left">
+            <p class="body-l" data-i18n="cta.desc">Tem um produto, site ou ideia que precisa de um design claro e bem pensado? Me conte — costumo responder em até 24 horas.</p>
+            <!-- TODO: add professional email (mailto) here when defined -->
+          </div>
+          <div class="actions reveal-right" style="margin-top:0">
+            <!-- TODO: point "Start a project" to the professional email when defined -->
+            <a class="btn btn--primary" href="https://www.linkedin.com/in/henriguastilorentz/" target="_blank" rel="noopener"><span data-i18n="btn.start">Iniciar um projeto</span> <span class="arrow">→</span></a>
+            <a class="btn" href="https://www.linkedin.com/in/henriguastilorentz/" target="_blank" rel="noopener">LinkedIn <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="body-s subtle" data-i18n="footer.rights">© 2026 Henri Guasti. Todos os direitos reservados.</span>
+      <nav aria-label="Social">
+        <a class="ulink" href="https://www.linkedin.com/in/henriguastilorentz/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="ulink" href="https://www.behance.net/henriguast1" target="_blank" rel="noopener">Behance</a>
+        <a class="ulink" href="#">Instagram</a>
+        <a class="ulink" href="#">Dribbble</a>
+      </nav>
+      <a class="ulink" href="#home" data-i18n="footer.top">Voltar ao topo ↑</a>
+    </footer>
+  </div>
+</main>
+
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script src="js/scroll.js"></script>
+</body>
+</html>
