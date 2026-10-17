@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NAX Seguros — Seguro Residencial</title>
+  <meta name="description" content="Seguro residencial sob medida, 100% online e com assistência 24h. Planos a partir de R$ 19,90/mês.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Intro / loader -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro__logo">
+      <img src="assets/icons/shield-white.svg" width="20.6667" height="25.3372" alt="">
+      <span>NAX Seguros</span>
+    </div>
+    <div class="intro__bar"><span></span></div>
+  </div>
+
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- Header -->
+  <header class="header" id="topo">
+    <div class="container header__inner">
+      <a href="#topo" class="logo" aria-label="NAX Seguros — início">
+        <span class="logo__icon"><img src="assets/icons/shield-brand.svg" width="20.6667" height="25.3372" alt=""></span>
+        <span class="logo__text">NAX Seguros</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <a href="#vantagens" class="nav__item">Sobre nós</a>
+        <a href="#planos" class="nav__item">Clube de Descontos</a>
+        <div class="nav__dropdown">
+          <button class="nav__item nav__item--btn" aria-expanded="false" aria-haspopup="true">
+            Central de Ajuda
+            <span class="nav__chevron"><img src="assets/icons/chevron-down.svg" width="14" height="8" alt=""></span>
+          </button>
+          <div class="dropdown" role="menu">
+            <a href="#faq" role="menuitem">Perguntas frequentes</a>
+            <a href="#" role="menuitem">Acionar assistência</a>
+            <a href="#" role="menuitem">Fale conosco</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <button class="search-btn" aria-label="Pesquisar" data-search-open>
+          <img src="assets/icons/search.svg" width="20" height="20" alt="">
+        </button>
+        <a href="#" class="btn btn--primary btn--md">
+          <span>Área do Cliente</span>
+          <span class="btn__icon"><img src="assets/icons/user.svg" width="13.6667" height="17" alt=""></span>
+        </a>
+        <button class="burger" aria-label="Abrir menu" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Busca -->
+  <div class="search" role="dialog" aria-modal="true" aria-label="Pesquisar">
+    <div class="search__box">
+      <img src="assets/icons/search.svg" width="20" height="20" alt="">
+      <input type="search" placeholder="O que você procura? Ex.: assistência 24h" aria-label="Termo de busca">
+      <button class="search__close" aria-label="Fechar busca" data-search-close>Esc</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+        <canvas class="hero__particles"></canvas>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="badge badge--solid hero-anim" style="--d:0">Seguro Residencial</span>
+          <div class="hero__text">
+            <h1 class="display split" style="--d:1">Seu lar merece estar sempre protegido.</h1>
+            <p class="body-lg hero-anim" style="--d:4">Com a gente, você garante coberturas sob medida e serviços que cuidam da sua casa como se fosse nossa.</p>
+          </div>
+          <div class="hero__actions hero-anim" style="--d:5">
+            <a href="#cta" class="btn btn--primary btn--lg">
+              <span>Cotar com um corretor</span>
+              <span class="btn__icon btn__icon--slide"><img src="assets/icons/arrow-right-white.svg" width="13.6667" height="13.6667" alt=""></span>
+            </a>
+            <a href="#planos" class="btn btn--outline-inverse btn--lg"><span>Ver planos</span></a>
+          </div>
+          <ul class="trust hero-anim" style="--d:6">
+            <li class="check check--inverse"><span class="check__dot"><img src="assets/icons/check-inverse.svg" width="10" height="7.5" alt=""></span>Contratação 100% online</li>
+            <li class="check check--inverse"><span class="check__dot"><img src="assets/icons/check-inverse.svg" width="10" height="7.5" alt=""></span>Assistência 24h</li>
+            <li class="check check--inverse"><span class="check__dot"><img src="assets/icons/check-inverse.svg" width="10" height="7.5" alt=""></span>Pagamento do seu jeito</li>
+          </ul>
+        </div>
+
+        <div class="hero__media" data-tilt>
+          <div class="hero__image">
+            <img src="assets/img/hero.jpg" alt="Família feliz brincando no sofá de casa" width="2000" height="1333">
+            <span class="hero__shine" aria-hidden="true"></span>
+          </div>
+          <div class="price-chip">
+            <span class="price-chip__icon"><img src="assets/icons/shield-chip.svg" width="18" height="22.0034" alt=""></span>
+            <span class="price-chip__text">
+              <span class="caption">Planos a partir de</span>
+              <strong>R$ <span data-count="19.90">19,90</span>/mês</strong>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#planos" class="scroll-hint" aria-label="Rolar para os planos"><span></span></a>
+    </section>
+
+    <!-- Planos -->
+    <section class="section planos" id="planos">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="badge">Planos</span>
+          <h2 class="h1">Seu lar protegido, do seu jeito</h2>
+          <p class="body-lg muted">Aqui você escolhe o plano que combina com seu lar. Mais simples ou mais completo, sempre com proteção e serviços essenciais pra sua casa.</p>
+        </div>
+
+        <div class="plans">
+          <article class="plan reveal" style="--i:0">
+            <div class="plan__content">
+              <div class="plan__top"><span class="badge">Essencial</span></div>
+              <h3 class="h3">Seguro Residencial Essencial</h3>
+              <ul class="plan__benefits">
+                <li class="check"><span class="check__dot"><img src="assets/icons/check.svg" width="10" height="7.5" alt=""></span>6 assistências 24h</li>
+                <li class="check"><span class="check__dot"><img src="assets/icons/check.svg" width="10" height="7.5" alt=""></span>3 coberturas</li>
+              </ul>
+            </div>
+            <div class="plan__bottom">
+              <hr class="divider">
+              <div class="price">
+                <span class="caption muted">mensais a partir de</span>
+                <div class="price__value"><strong>R$ 19,90</strong><span class="muted">/mês*</span></div>
+              </div>
+              <div class="plan__actions">
+                <a href="#cta" class="btn btn--secondary btn--lg btn--block"><span>Simule online</span><span class="btn__icon btn__icon--slide"><img src="assets/icons/arrow-right-brand.svg" width="13.6667" height="13.6667" alt=""></span></a>
+                <a href="#" class="btn btn--ghost btn--md btn--block"><span>Saiba mais</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan plan--highlight reveal" style="--i:1">
+            <span class="plan__glow" aria-hidden="true"></span>
+            <div class="plan__content">
+              <div class="plan__top"><span class="badge">Prático</span><span class="badge badge--solid badge--pulse">Recomendado</span></div>
+              <h3 class="h3">Seguro Residencial Prático</h3>
+              <ul class="plan__benefits">
+                <li class="check"><span class="check__dot"><img src="assets/icons/check.svg" width="10" height="7.5" alt=""></span>10 assistências 24h</li>
+                <li class="check"><span class="check__dot"><img src="assets/icons/check.svg" width="10" height="7.5" alt=""></span>5 coberturas</li>
+              </ul>
+            </div>
+            <div class="plan__bottom">
+              <hr class="divider">
+              <div class="price">
+                <span class="caption muted">mensais a partir de</span>
+                <div class="price__value"><strong>R$ 29,90</strong><span class="muted">/mês*</span></div>
+              </div>
+              <div class="plan__actions">
+                <a href="#cta" class="btn btn--primary btn--lg btn--block"><span>Simule online</span><span class="btn__icon btn__icon--slide"><img src="assets/icons/arrow-right-white.svg" width="13.6667" height="13.6667" alt=""></span></a>
+                <a href="#" class="btn btn--ghost btn--md btn--block"><span>Saiba mais</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan reveal" style="--i:2">
+            <div class="plan__content">
+              <div class="plan__top"><span class="badge">Total</span></div>
+              <h3 class="h3">Seguro Residencial Total</h3>
+              <ul class="plan__benefits">
+                <li class="check"><span class="check__dot"><img src="assets/icons/check.svg" width="10" height="7.5" alt=""></span>20 assistências 24h</li>
+                <li class="check"><span class="check__dot"><img src="assets/icons/check.svg" width="10" height="7.5" alt=""></span>10 coberturas</li>
+              </ul>
+            </div>
+            <div class="plan__bottom">
+              <hr class="divider">
+              <div class="price">
+                <span class="caption muted">mensais a partir de</span>
+                <div class="price__value"><strong>R$ 69,90</strong><span class="muted">/mês*</span></div>
+              </div>
+              <div class="plan__actions">
+                <a href="#cta" class="btn btn--secondary btn--lg btn--block"><span>Simule online</span><span class="btn__icon btn__icon--slide"><img src="assets/icons/arrow-right-brand.svg" width="13.6667" height="13.6667" alt=""></span></a>
+                <a href="#" class="btn btn--ghost btn--md btn--block"><span>Saiba mais</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="caption muted reveal">*Valores mensais de referência. A contratação está sujeita à análise e às condições gerais do produto.</p>
+      </div>
+    </section>
+
+    <!-- Vantagens -->
+    <section class="section vantagens" id="vantagens">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <span class="badge badge--surface">Vantagens</span>
+          <h2 class="h1">Toda proteção que seu lar merece</h2>
+          <p class="body-lg muted">Viva tranquilo! Aqui, você protege seu lar de um jeito simples, rápido e sem estresse. A gente cuida dos imprevistos, você cuida do que realmente importa.</p>
+        </div>
+
+        <div class="features">
+          <article class="feature reveal" style="--i:0">
+            <div class="feature__top"><span class="feature__photo"><img src="assets/img/feature-01.png" width="72" height="72" alt=""></span><span class="feature__num">01</span></div>
+            <h3 class="h4">Contrate 100% online</h3>
+            <p class="muted">Tudo sem burocracia e sem sair de casa. Contrate seu seguro em poucos cliques, de forma rápida, prática e segura.</p>
+          </article>
+          <article class="feature reveal" style="--i:1">
+            <div class="feature__top"><span class="feature__photo"><img src="assets/img/feature-02.png" width="72" height="72" alt=""></span><span class="feature__num">02</span></div>
+            <h3 class="h4">Pagamento do seu jeito</h3>
+            <p class="muted">Pague no cartão, no débito ou até parcele. Aqui quem escolhe é você.</p>
+          </article>
+          <article class="feature reveal" style="--i:2">
+            <div class="feature__top"><span class="feature__photo"><img src="assets/img/feature-03.png" width="72" height="72" alt=""></span><span class="feature__num">03</span></div>
+            <h3 class="h4">Coberturas que fazem a diferença</h3>
+            <p class="muted">Proteção contra incêndios, danos elétricos, roubos e até imprevistos como enchentes e problemas na tubulação.</p>
+          </article>
+          <article class="feature reveal" style="--i:3">
+            <div class="feature__top"><span class="feature__photo"><img src="assets/img/feature-04.png" width="72" height="72" alt=""></span><span class="feature__num">04</span></div>
+            <h3 class="h4">Assistência 24h pra qualquer emergência</h3>
+            <p class="muted">Deu ruim? A gente resolve! Assistências disponíveis a qualquer hora, qualquer dia.</p>
+          </article>
+          <article class="feature reveal" style="--i:4">
+            <div class="feature__top"><span class="feature__photo"><img src="assets/img/feature-05.png" width="72" height="72" alt=""></span><span class="feature__num">05</span></div>
+            <h3 class="h4">Facilidade no dia a dia</h3>
+            <p class="muted">Parcelamento sem sufoco e serviços que ajudam de verdade quando você mais precisa.</p>
+          </article>
+          <article class="feature reveal" style="--i:5">
+            <div class="feature__top"><span class="feature__photo"><img src="assets/img/feature-06.png" width="72" height="72" alt=""></span><span class="feature__num">06</span></div>
+            <h3 class="h4">Serviços exclusivos</h3>
+            <p class="muted">Quem escolhe o plano completo ainda garante benefícios premium, sem pagar nada a mais por isso.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avaliações -->
+    <section class="section avaliacoes" id="avaliacoes">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <span class="badge badge--solid">Avaliações</span>
+          <h2 class="h1">Quem tem NAX, recomenda</h2>
+          <p class="body-lg">Milhares de famílias já protegem o lar com a gente. Veja o que nossos clientes contam sobre a experiência com a NAX Seguros.</p>
+        </div>
+
+        <ul class="stats reveal" style="--i:1">
+          <li class="stat">
+            <strong><span data-count="4.9" data-decimals="1">4,9</span></strong>
+            <span class="stat__stars" aria-label="5 de 5 estrelas">
+              <img src="assets/icons/star-white.svg" width="15.3334" height="14.68" alt=""><img src="assets/icons/star-white.svg" width="15.3334" height="14.68" alt=""><img src="assets/icons/star-white.svg" width="15.3334" height="14.68" alt=""><img src="assets/icons/star-white.svg" width="15.3334" height="14.68" alt=""><img src="assets/icons/star-white.svg" width="15.3334" height="14.68" alt="">
+            </span>
+            <span>nota média de 2.300+ avaliações</span>
+          </li>
+          <li class="stat__divider" aria-hidden="true"></li>
+          <li class="stat"><strong><span data-count="98" data-decimals="0">98</span>%</strong><span>recomendam a NAX</span></li>
+          <li class="stat__divider" aria-hidden="true"></li>
+          <li class="stat"><strong>+<span data-count="50" data-decimals="0">50</span> mil</strong><span>lares protegidos</span></li>
+        </ul>
+
+        <div class="testimonials">
+          <figure class="testimonial reveal" style="--i:0">
+            <div class="testimonial__content">
+              <div class="testimonial__stars" aria-label="5 de 5 estrelas">
+                <span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span>
+              </div>
+              <blockquote class="body-lg">“Contratei em menos de 10 minutos pelo celular. Quando tive um problema elétrico, a assistência chegou no mesmo dia.”</blockquote>
+            </div>
+            <figcaption class="testimonial__author">
+              <span class="avatar">MS</span>
+              <span><strong>Mariana Souza</strong><span class="caption muted">São Paulo, SP · Plano Prático</span></span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial reveal" style="--i:1">
+            <div class="testimonial__content">
+              <div class="testimonial__stars" aria-label="5 de 5 estrelas">
+                <span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span>
+              </div>
+              <blockquote class="body-lg">“Tive um vazamento na cozinha num domingo à noite e o encanador veio rapidinho. Atendimento humano e sem enrolação.”</blockquote>
+            </div>
+            <figcaption class="testimonial__author">
+              <span class="avatar">RA</span>
+              <span><strong>Ricardo Almeida</strong><span class="caption muted">Belo Horizonte, MG · Plano Total</span></span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial reveal" style="--i:2">
+            <div class="testimonial__content">
+              <div class="testimonial__stars" aria-label="5 de 5 estrelas">
+                <span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span><span><img src="assets/icons/star-brand.svg" width="18.6667" height="17.85" alt=""></span>
+              </div>
+              <blockquote class="body-lg">“Pago menos de R$ 1 por dia e durmo tranquila. É simples de entender e consigo acionar tudo sozinha, sem ligar pra ninguém.”</blockquote>
+            </div>
+            <figcaption class="testimonial__author">
+              <span class="avatar">JC</span>
+              <span><strong>Juliana Costa</strong><span class="caption muted">Curitiba, PR · Plano Essencial</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+      <div class="container faq__inner">
+        <div class="faq__intro">
+          <div class="section-heading reveal">
+            <span class="badge">Dúvidas</span>
+            <h2 class="h1">Perguntas frequentes</h2>
+            <p class="body-lg muted">Separamos as dúvidas mais comuns sobre o Seguro Residencial NAX pra você contratar com toda a segurança.</p>
+          </div>
+          <div class="help-card reveal" style="--i:1">
+            <span class="help-card__icon"><img src="assets/icons/whatsapp-brand.svg" width="24" height="24" alt=""></span>
+            <div class="help-card__text">
+              <h3 class="h4">Ainda ficou com dúvida?</h3>
+              <p class="muted">Fale com nosso time pelo WhatsApp. Respondemos em poucos minutos, de segunda a segunda, das 8h às 20h.</p>
+            </div>
+            <!-- Troque o número abaixo pelo WhatsApp oficial da NAX (formato 55 + DDD + número) -->
+            <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20Seguro%20Residencial%20NAX." target="_blank" rel="noopener" class="btn btn--primary btn--lg btn--block">
+              <span>Tirar dúvidas</span>
+              <span class="btn__icon btn__icon--ring"><img class="icon-on-brand" src="assets/icons/whatsapp-brand.svg" width="20" height="20" alt=""></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="faq-item reveal" style="--i:0">
+            <h3><button class="faq-item__header" aria-expanded="false" aria-controls="faq-1" id="faq-1-btn"><span class="h4">Como funciona a contratação do seguro residencial?</span><span class="faq-item__toggle"><img src="assets/icons/chevron-down-brand.svg" width="12" height="7" alt=""></span></button></h3>
+            <div class="faq-item__panel" id="faq-1" role="region" aria-labelledby="faq-1-btn"><div><p class="muted">Tudo é feito online: você simula, escolhe o plano que combina com seu lar e contrata em poucos minutos, sem burocracia e sem vistoria prévia.</p></div></div>
+          </div>
+          <div class="faq-item reveal" style="--i:1">
+            <h3><button class="faq-item__header" aria-expanded="false" aria-controls="faq-2" id="faq-2-btn"><span class="h4">O seguro vale para imóvel alugado?</span><span class="faq-item__toggle"><img src="assets/icons/chevron-down-brand.svg" width="12" height="7" alt=""></span></button></h3>
+            <div class="faq-item__panel" id="faq-2" role="region" aria-labelledby="faq-2-btn"><div><p class="muted">Sim! Você pode contratar sendo proprietário ou inquilino, para casas e apartamentos de uso residencial.</p></div></div>
+          </div>
+          <div class="faq-item reveal" style="--i:2">
+            <h3><button class="faq-item__header" aria-expanded="false" aria-controls="faq-3" id="faq-3-btn"><span class="h4">Quais assistências 24h estão incluídas?</span><span class="faq-item__toggle"><img src="assets/icons/chevron-down-brand.svg" width="12" height="7" alt=""></span></button></h3>
+            <div class="faq-item__panel" id="faq-3" role="region" aria-labelledby="faq-3-btn"><div><p class="muted">Chaveiro, encanador, eletricista, vidraceiro e desentupimento estão entre os serviços. A quantidade varia de acordo com o plano escolhido.</p></div></div>
+          </div>
+          <div class="faq-item reveal" style="--i:3">
+            <h3><button class="faq-item__header" aria-expanded="false" aria-controls="faq-4" id="faq-4-btn"><span class="h4">Como aciono o seguro em caso de sinistro?</span><span class="faq-item__toggle"><img src="assets/icons/chevron-down-brand.svg" width="12" height="7" alt=""></span></button></h3>
+            <div class="faq-item__panel" id="faq-4" role="region" aria-labelledby="faq-4-btn"><div><p class="muted">Basta entrar na Área do Cliente ou chamar a gente no WhatsApp. Nossa equipe orienta cada etapa até a solução.</p></div></div>
+          </div>
+          <div class="faq-item reveal" style="--i:4">
+            <h3><button class="faq-item__header" aria-expanded="false" aria-controls="faq-5" id="faq-5-btn"><span class="h4">Quais formas de pagamento são aceitas?</span><span class="faq-item__toggle"><img src="assets/icons/chevron-down-brand.svg" width="12" height="7" alt=""></span></button></h3>
+            <div class="faq-item__panel" id="faq-5" role="region" aria-labelledby="faq-5-btn"><div><p class="muted">Cartão de crédito, débito em conta e Pix, com opção de parcelamento sem juros.</p></div></div>
+          </div>
+          <div class="faq-item reveal" style="--i:5">
+            <h3><button class="faq-item__header" aria-expanded="false" aria-controls="faq-6" id="faq-6-btn"><span class="h4">Posso cancelar quando quiser?</span><span class="faq-item__toggle"><img src="assets/icons/chevron-down-brand.svg" width="12" height="7" alt=""></span></button></h3>
+            <div class="faq-item__panel" id="faq-6" role="region" aria-labelledby="faq-6-btn"><div><p class="muted">Pode. O cancelamento é simples, sem multa, e é feito direto pela Área do Cliente.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta" id="cta">
+      <div class="container">
+        <div class="cta__card reveal reveal--scale">
+          <span class="cta__ring cta__ring--1" aria-hidden="true"></span>
+          <span class="cta__ring cta__ring--2" aria-hidden="true"></span>
+          <div class="cta__text">
+            <h2 class="h1">Fique sempre seguro com a NAX</h2>
+            <p class="body-lg">Para que sua casa esteja sempre segura, conte com o nosso Seguro Residencial sob medida pra você. Contratar é simples, rápido e 100% online! Clique no botão abaixo e fale agora com um de nossos especialistas.</p>
+          </div>
+          <div class="cta__actions">
+            <a href="#" class="btn btn--inverse btn--lg btn--block"><span>Fale com um corretor</span><span class="btn__icon btn__icon--ring"><img src="assets/icons/phone.svg" width="18.5739" height="18.6068" alt=""></span></a>
+            <a href="#planos" class="btn btn--outline-inverse btn--lg btn--block"><span>Simule online</span><span class="btn__icon btn__icon--slide"><img src="assets/icons/arrow-right-white.svg" width="13.6667" height="13.6667" alt=""></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand reveal">
+          <a href="#topo" class="logo logo--inverse">
+            <span class="logo__icon"><img src="assets/icons/shield-white.svg" width="20.6667" height="25.3372" alt=""></span>
+            <span class="logo__text">NAX Seguros</span>
+          </a>
+          <p>Seguro residencial sob medida, 100% online e com assistência 24h.</p>
+        </div>
+        <div class="footer__col reveal" style="--i:1">
+          <span class="eyebrow">Institucional</span>
+          <a href="#">Sobre nós</a>
+          <a href="#">Clube de Descontos</a>
+          <a href="#faq">Central de Ajuda</a>
+        </div>
+        <div class="footer__col reveal" style="--i:2">
+          <span class="eyebrow">Serviços</span>
+          <a href="#">Outros serviços da NAX Seguros</a>
+          <a href="#">Termo de garantia</a>
+        </div>
+        <div class="footer__col reveal" style="--i:3">
+          <span class="eyebrow">Conheça nossas redes</span>
+          <div class="social">
+            <a href="#" aria-label="Facebook"><img src="assets/icons/social-facebook.svg" width="20" height="20" alt=""></a>
+            <a href="#" aria-label="Instagram"><img src="assets/icons/social-instagram.svg" width="19.9883" height="19.9961" alt=""></a>
+            <a href="#" aria-label="LinkedIn"><img src="assets/icons/social-linkedin.svg" width="20" height="20" alt=""></a>
+            <a href="#" aria-label="YouTube"><img src="assets/icons/social-youtube.svg" width="20" height="14.0664" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <hr class="divider divider--inverse">
+      <p class="footer__copy">© 2025 NAX Seguros. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Voltar ao topo"><img src="assets/icons/arrow-right-white.svg" width="13.6667" height="13.6667" alt=""></button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
