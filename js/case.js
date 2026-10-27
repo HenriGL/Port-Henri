@@ -4,6 +4,8 @@
    data so it follows the PT / EN switch like the other lists.
    ========================================================= */
 const CASE_IMG='assets/cases/nax/';
+// Live build of the NAX landing, embedded in the "Interfaces" browser frame
+const CASE_LIVE='projects/nax-seguros/index.html';
 
 const CASES={
   nax:{
@@ -26,7 +28,7 @@ const CASES={
                    ["Plano recomendado em destaque","O Prático ganha borda, selo e botão sólido, o que reduz a dúvida de quem compara três opções lado a lado."],
                    ["Resumo sempre à vista","Na simulação, a coluna lateral mostra o total mensal atualizado a cada escolha, com ajuda pelo WhatsApp por perto."]]},
       ui:{t:"Interfaces",d:"Telas finais da landing e do fluxo de contratação, construídas com os componentes do design system.",
-        tabs:[["Landing","landing-full","nax.com.br/seguro-residencial"],["Planos","planos","nax.com.br/seguro-residencial#planos"],["Simulação","simulacao-full","nax.com.br/simulacao/coberturas"],["Confirmação","confirmacao-full","nax.com.br/simulacao/confirmacao"]],
+        tabs:[["Landing","landing-full","nax.com.br/seguro-residencial",""],["Planos","planos","nax.com.br/seguro-residencial#planos","planos"],["Simulação","simulacao-full","nax.com.br/simulacao/coberturas"],["Confirmação","confirmacao-full","nax.com.br/simulacao/confirmacao"]],
         live:"Abrir a landing ao vivo"},
       visual:{t:"Linguagem visual",d:"O design system da NAX: azul para confiança e ação, navy para peso institucional e muito respiro em superfícies claras.",
         type:"Tipografia",pair:"Poppins + Inter",pairD:"Poppins nos títulos e botões, Inter no texto corrido",
@@ -56,7 +58,7 @@ const CASES={
                    ["Recommended plan highlighted","Prático gets a border, a badge and a solid button, which eases the doubt of comparing three options side by side."],
                    ["Summary always in view","During the quote, the side column shows the monthly total updated with every choice, with WhatsApp help close by."]]},
       ui:{t:"Interfaces",d:"Final screens of the landing page and the sign-up flow, built with the design system components.",
-        tabs:[["Landing","landing-full","nax.com.br/seguro-residencial"],["Plans","planos","nax.com.br/seguro-residencial#planos"],["Quote","simulacao-full","nax.com.br/simulacao/coberturas"],["Confirmation","confirmacao-full","nax.com.br/simulacao/confirmacao"]],
+        tabs:[["Landing","landing-full","nax.com.br/seguro-residencial",""],["Plans","planos","nax.com.br/seguro-residencial#planos","planos"],["Quote","simulacao-full","nax.com.br/simulacao/coberturas"],["Confirmation","confirmacao-full","nax.com.br/simulacao/confirmacao"]],
         live:"Open the live landing"},
       visual:{t:"Visual language",d:"The NAX design system: blue for trust and action, navy for institutional weight and plenty of breathing room on light surfaces.",
         type:"Typography",pair:"Poppins + Inter",pairD:"Poppins for headings and buttons, Inter for body copy",
@@ -128,7 +130,10 @@ function caseMarkup(id,c){
       <div class="case__tabs" role="tablist">${c.ui.tabs.map((t,i)=>`<button type="button" role="tab" aria-selected="${!i}" data-tab="${i}">${t[0]}</button>`).join('')}</div>
       <div class="case__browser">
         <div class="case__chrome"><i></i><i></i><i></i><a class="case__url" href="projects/nax-seguros/index.html" target="_blank" rel="noopener" title="${c.ui.live}">${tab0[2]}</a></div>
-        <div class="case__screen" role="tabpanel" tabindex="0" data-lenis-prevent><img src="${CASE_IMG}${tab0[1]}.jpg" alt="${tab0[0]}" loading="lazy"></div>
+        <div class="case__screen" role="tabpanel" data-lenis-prevent>
+          <iframe class="case__live" title="${c.ui.live}" data-src="${CASE_LIVE}" loading="lazy"></iframe>
+          <div class="case__still" tabindex="0" hidden><img alt=""></div>
+        </div>
       </div>
     </section>
 
@@ -173,21 +178,37 @@ function renderCase(lang){
     const id=el.dataset.case,tab=el.querySelector('[aria-selected="true"]');
     el.innerHTML=caseMarkup(id,CASES[id][lang]||CASES[id].pt);
     if(tab)selectTab(el,+tab.dataset.tab);
+    if(el===caseOpen)loadLive(el);
   });
 }
 
 function selectTab(el,i){
   const t=(CASES[el.dataset.case][caseLang]||CASES[el.dataset.case].pt).ui.tabs[i];
   el.querySelectorAll('[role="tab"]').forEach(b=>b.setAttribute('aria-selected',String(+b.dataset.tab===i)));
-  const screen=el.querySelector('.case__screen'),img=screen.querySelector('img');
-  img.src=CASE_IMG+t[1]+'.jpg';img.alt=t[0];
+  const live=el.querySelector('.case__live'),still=el.querySelector('.case__still'),isLive=t[3]!==undefined;
+  // Landing tabs show the real, navigable site; flow steps that only exist as designs show the screen
+  live.hidden=!isLive;still.hidden=isLive;
+  if(isLive){
+    const src=CASE_LIVE+(t[3]?'#'+t[3]:'');
+    if(live.dataset.loaded){try{live.contentWindow.location.hash=t[3]||'topo'}catch(e){live.src=src}}
+    else live.dataset.src=src;
+  }else{
+    const img=still.querySelector('img');img.src=CASE_IMG+t[1]+'.jpg';img.alt=t[0];still.scrollTop=0;
+  }
   el.querySelector('.case__url').textContent=t[2];
-  screen.scrollTop=0;
+}
+
+// The embedded site only loads once the modal is opened
+function loadLive(el){
+  const live=el.querySelector('.case__live');
+  if(!live||live.dataset.loaded)return;
+  live.dataset.loaded='1';live.src=live.dataset.src;
 }
 
 function openCase(id,from){
   const el=document.getElementById('case-'+id);if(!el)return;
   caseOpen=el;caseReturn=from||null;
+  loadLive(el);
   el.hidden=false;el.scrollTop=0;
   document.documentElement.classList.add('case-lock');
   if(window.lenis)window.lenis.stop();
