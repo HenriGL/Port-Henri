@@ -1,0 +1,57 @@
+/* Base: reset, utilitários e peças compartilhadas (botões, campos, avisos, movimento) */
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:var(--s-body);line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+::selection{background:var(--wine);color:var(--cream)}
+input,textarea{caret-color:var(--wine)}
+html{scrollbar-color:var(--line) transparent;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:1024px){.gut{padding-left:24px;padding-right:24px}}
+.wrap{max-width:1392px;margin:0 auto}
+.wrap.gut{max-width:calc(1392px + 2 * max(16px,env(safe-area-inset-left,0px)))}
+@media (min-width:1024px){.wrap.gut{max-width:1440px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.mask{display:inline-block;background:currentColor;-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
+
+.chip{flex:none;display:inline-flex;align-items:center;gap:7px;border:0;background:var(--surface-2);color:var(--fg);border-radius:999px;padding:9px 15px;font-size:var(--s-small);font-weight:500;white-space:nowrap;transition:background .2s}
+.chip:hover{background:#e8e3df}
+.chip[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-fg)}
+.chip .n{font-size:13px;opacity:.7;font-variant-numeric:tabular-nums}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;background:var(--c,var(--muted))}
+
+/* um formato de botão no site inteiro: pílula chapada */
+.btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:15px 22px;font-weight:700;font-size:var(--s-body);background:var(--wine);color:var(--cream);text-decoration:none;text-align:center;transition:background .2s,scale .2s var(--ease-out)}
+.btn:hover{background:var(--wine-2)}
+.btn:active{scale:.98}
+.btn.ghost{background:var(--surface-2);color:var(--fg);flex:0 1 auto}
+.btn.ghost:hover{background:#e8e3df}
+.btn.danger{background:transparent;color:var(--warn);box-shadow:inset 0 0 0 1.5px currentColor;flex:0 1 auto} /* taste-skill-ignore: contorno do botão de ação destrutiva, no lugar de uma borda */
+.btn:disabled{opacity:.5;cursor:default}
+.linkbtn{border:0;background:none;color:var(--wine-ink);font-weight:600;font-size:var(--s-small);text-decoration:underline;text-underline-offset:4px;padding:10px 0}
+.linkbtn:hover{text-decoration-thickness:2px}
+
+.field{display:grid;gap:6px;font-size:var(--s-small);font-weight:600;color:var(--muted)}
+.field input,.field textarea,.field select{border:1px solid var(--line);background:var(--chip);color:var(--fg);border-radius:var(--r);padding:12px 14px;font-size:16px;font-weight:400;width:100%}
+.field textarea{min-height:90px;resize:vertical;line-height:1.5}
+.hint{font-size:var(--s-small);color:var(--muted);font-weight:400;line-height:1.45}
+.notice{border-radius:var(--r);padding:12px 14px;background:var(--surface-2);font-size:var(--s-small);line-height:1.5}
+.notice.warn{background:var(--out-bg)}
+.copybox{font-size:var(--s-small);white-space:pre-wrap;background:var(--surface-2);border-radius:var(--r);padding:12px;user-select:all;max-height:180px;overflow:auto}
+.notice a{color:var(--wine-ink);font-weight:600}
+
+@keyframes fade{from{opacity:0}}
+@keyframes up{from{translate:0 40px;opacity:.4}}
+@keyframes pop{from{opacity:0;scale:.97}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-property:opacity,background-color,color!important}}
+.toast{position:fixed;z-index:60;left:50%;translate:-50% 0;bottom:calc(84px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--cream);padding:12px 18px;border-radius:999px;font-weight:600;font-size:var(--s-small);box-shadow:var(--shadow);max-width:calc(100vw - 32px);animation:up .25s var(--ease-out)} /* taste-skill-ignore: aviso flutuante */
+/* com uma folha aberta o aviso sobe para o topo, para não cobrir os botões do pé da folha */
+:root:has(.sheet) .toast{bottom:auto;top:calc(16px + env(safe-area-inset-top,0px));animation-name:fade}
+
+/* entradas na primeira visita (só quando o script roda; sem ele, tudo já aparece) */
+@media (prefers-reduced-motion:no-preference){
+  .js-reveal .rv{opacity:0;translate:0 24px;transition:opacity .6s var(--ease-out),translate .7s var(--ease-out);transition-delay:var(--d,0ms)}
+  .js-reveal .rv.in{opacity:1;translate:0 0}
+}

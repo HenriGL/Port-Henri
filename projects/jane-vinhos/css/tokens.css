@@ -1,0 +1,23 @@
+/* Tokens da marca. Tema sempre claro, por escolha: público mais velho, leitura com bom contraste.
+   Direção (tasteskill, seed 699386265): "The specimen catalogue", ajustada com a referência do Figma: card vertical, garrafa saindo pelo topo. */
+:root{
+  --wine:#661029; --wine-2:#7d1a36; --wine-deep:#4f0b1f; --wine-ink:#661029;
+  --tan:#b8916a; --tan-ink:#7a5734; --sage:#a9b78e; --cream:#f3ebd8; --cream-muted:#e2cdb4; --ink:#2b2121;
+  --bg:#faf9f7; --surface:#ffffff; --surface-2:#f2efec; --line:#dcd7d8; --fg:#2b2121; --muted:#6a5f61;
+  --field-1:#f3ebd8; /* pergaminho: arte da Jane e o "como pedir" */
+  --tile:#f1eeeb; /* fundo padrão, único, atrás das garrafas */
+  --photo:var(--tile);
+  --chip:#ffffff; --chip-on:#661029; --chip-on-fg:#f3ebd8;
+  --t-tinto:#7d1a36; --t-branco:#c9a43f; --t-rose:#d98a95; --t-verde:#8fa36a; --t-espumante:#b8916a; --t-licor:#5a2a5e;
+  --ok:#4f7a3a; --warn:#a0522d;
+  --shadow:0 10px 30px rgba(43,10,20,.18); /* só para o que flutua: folhas, barra do pedido, avisos */
+  --f-display:"Gloock","Bodoni Moda",Didot,Georgia,serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  /* cinco degraus de tipo */
+  --s-small:14px; --s-body:16px; --s-item:clamp(17px,1.3vw,19px); --s-head:clamp(32px,3.4vw,50px); --s-display:clamp(36px,5.4vw,80px);
+  --r:12px; /* um raio para campos, painéis e folhas; botões e controles são pílulas */
+  --ease-out:cubic-bezier(.2,.8,.2,1);
+  --low:#a86a12; --low-bg:#fbf1dd; --out-bg:#f8e6e3; --ok-bg:#e8f0e2;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{color-scheme:light}
