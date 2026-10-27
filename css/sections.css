@@ -49,8 +49,6 @@ section{padding:96px var(--gutter)}
 .xp__line{position:absolute;top:45px;bottom:0;left:calc(var(--dot-x) - .5px);width:1px;background:var(--color-border-default);pointer-events:none}
 .xp__line::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--color-text-brand),#fff);transform:scaleY(var(--p));transform-origin:top}
 .xrow{display:grid;grid-template-columns:300px 12px 1fr auto;gap:32px;align-items:start;padding:32px 0;border-top:1px solid var(--color-border-default);position:relative}
-.xrow::before{content:"";position:absolute;top:-1px;left:0;height:1px;width:100%;background:var(--color-text-brand);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
-.xrow:hover::before{transform:scaleX(1)}
 .xrow__when{display:flex;flex-direction:column;gap:4px;padding-top:9px;color:var(--color-text-tertiary)}
 .xrow__when .body-s{color:inherit}
 .xrow__dot{position:relative;z-index:1;width:12px;height:12px;margin-top:13px;border-radius:50%;background:var(--color-bg-primary);border:1px solid var(--color-border-default);
@@ -86,6 +84,14 @@ section{padding:96px var(--gutter)}
 .cover::before{content:"";position:absolute;inset:0;background:var(--g);transform:perspective(1200px) scale(calc(var(--z) * var(--h)))}
 .cover::after{content:attr(data-view);position:absolute;right:32px;bottom:32px;padding:12px 20px;border-radius:100px;background:#fff;color:#000;font-size:14px;font-weight:500;transform:translateY(20px) scale(.9);opacity:0;transition:all .5s var(--ease)}
 .cover span{position:relative;font-size:14px;font-weight:500}
+/* Project logo centred on the cover; pattern layer (Jane Vinhos) zooms with the cover */
+.cover .cover__logo{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:1;transition:scale 1s var(--ease)}
+.cover .cover__logo--nax{display:inline-flex;align-items:center;gap:12px;font-size:clamp(32px,3.6vw,52px);font-weight:500;letter-spacing:-.03em;white-space:nowrap}
+.cover .cover__logo--nax img{width:.8em;height:auto;margin:0 .15em}
+img.cover__logo{width:clamp(180px,36%,240px);height:auto}
+.card:hover .cover__logo{scale:1.04}
+.cover__pattern img{position:absolute;left:-86.52%;top:-34.85%;width:281.56%;height:169.52%;max-width:none}
+.cover .cover__pattern{position:absolute;inset:0;overflow:hidden;opacity:.15;mix-blend-mode:overlay;pointer-events:none;transform:perspective(1200px) scale(calc(var(--z) * var(--h)))}
 .card:hover .cover{--h:1.06}
 .card:hover .cover::after{transform:none;opacity:1}
 .tags{display:flex;gap:8px;flex-wrap:wrap}

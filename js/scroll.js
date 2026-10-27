@@ -11,6 +11,7 @@
   let lenis=null;
   if(!reduce&&typeof Lenis!=='undefined'){
     lenis=new Lenis({lerp:.09,smoothWheel:true,wheelMultiplier:1});
+    window.lenis=lenis;   // the case modal pauses page scrolling while open
     const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};
     requestAnimationFrame(raf);
   }
@@ -71,7 +72,8 @@
     if(desktop.matches){
       parallax.forEach(el=>{
         const r=el.getBoundingClientRect();
-        const off=(r.top+r.height/2-vh/2);
+        // Boxes rise into place and then settle — never pushed down past their slot
+        const off=Math.max(0,r.top+r.height/2-vh/2);
         el.style.transform=`translateY(${(-off*+el.dataset.speed).toFixed(1)}px)`;
       });
       drift.forEach(el=>{el.style.transform=`translateX(${((1-clamp(enter(el,vh)*1.4))*-80).toFixed(1)}px)`});
