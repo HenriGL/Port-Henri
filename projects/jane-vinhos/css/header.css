@@ -1,0 +1,40 @@
+/* Topo: barra com a marca, um fio e a navegação sobre o bordô escuro. Na aba Vinhos, logo abaixo, o painel bordô
+   com o desenho das taças, o título de um lado e a busca do outro. */
+
+/* marca e navegação */
+.logo{width:min(150px,38vw);aspect-ratio:640/257;color:var(--cream);flex:none}
+.tabs{display:flex;gap:4px;flex:none}
+.tab{border:0;background:none;color:var(--cream);padding:10px 16px;border-radius:999px;font-weight:600;font-size:var(--s-body);line-height:1.5;white-space:nowrap;transition:background .2s}
+.tab:hover{background:rgba(243,235,216,.12)}
+.tab[aria-current="page"]{background:var(--cream);color:var(--wine-ink)}
+.tab:focus-visible{outline-color:var(--cream)}
+
+.topbar{background:var(--wine-deep);color:var(--cream)}
+.brand-row{display:flex;align-items:center;gap:25px;padding:24px max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px))}
+@media (min-width:1024px){.brand-row{padding-inline:24px}}
+.brand-line{flex:1;min-width:0;height:1px;background:#fff} /* taste-skill-ignore: fio do topo, como no Figma */
+@media (max-width:640px){.brand-line{display:none}.brand-row{justify-content:space-between}}
+
+/* ---------- painel ---------- */
+.hero{background:var(--wine-deep);padding-block:0 40px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.dock-in{position:relative;isolation:isolate;overflow:hidden;background:var(--wine);color:var(--cream);border-radius:var(--r);min-height:256px;padding:48px;display:flex;align-items:center;gap:32px}
+/* o desenho das taças, bem apagado sobre o bordô */
+.dock-in::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--tacas) center/cover no-repeat;mix-blend-mode:overlay;opacity:.15;pointer-events:none}
+.hero h1{flex:1;min-width:0;font-family:var(--f-display);font-weight:400;font-size:var(--s-display);line-height:.98;letter-spacing:-.02em;margin:0;color:var(--cream);text-wrap:balance}
+
+.search{position:relative;flex:none;width:min(480px,100%)}
+.search input{width:100%;border:0;border-radius:999px;padding:16px 20px 16px 52px;background:var(--cream);color:var(--ink);font-size:var(--s-item);line-height:1.5;outline:0;transition:background .2s}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:3px solid var(--tan);outline-offset:2px;background:#fff}
+.search svg{position:absolute;left:20px;top:50%;translate:0 -50%;color:var(--wine)}
+
+@media (max-width:899px){
+  .dock-in{flex-direction:column;align-items:stretch;justify-content:center;gap:24px}
+  .search{width:100%}
+}
+@media (max-width:640px){
+  .hero{padding:0}
+  .dock-in{border-radius:0;padding-block:28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));min-height:0}
+  .hero h1{font-size:clamp(34px,9.6vw,42px)}
+  .search input{font-size:17px}
+}

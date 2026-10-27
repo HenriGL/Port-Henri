@@ -1,0 +1,60 @@
+/* Folhas e modais: detalhe do vinho, filtros, pedido (são as únicas superfícies que flutuam e levam sombra) */
+.scrim{position:fixed;inset:0;background:rgba(25,10,14,.5);z-index:40}
+.scrim.anim{animation:fade .2s}
+.sheet{position:fixed;z-index:41;left:0;right:0;bottom:0;max-height:92dvh;display:flex;flex-direction:column;background:var(--surface);border-radius:var(--r) var(--r) 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.25)} /* taste-skill-ignore: folha/diálogo flutua sobre a página */
+.sheet.anim{animation:up .3s var(--ease-out)}
+.sheet-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px))}
+.sheet-h h2{margin:0;font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.1}
+.xbtn{border:0;background:var(--surface-2);width:44px;height:44px;border-radius:50%;font-size:22px;line-height:1;flex:none;transition:background .2s}
+.xbtn:hover{background:#e8e3df}
+.sheet-b{overflow:auto;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));overscroll-behavior:contain}
+.sheet-f{display:flex;gap:10px;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--surface-2)}
+@media (min-width:760px){.sheet{left:50%;right:auto;bottom:auto;top:50%;translate:-50% -50%;width:min(860px,calc(100vw - 48px));max-height:88dvh;border-radius:var(--r);overflow:hidden}.sheet.anim{animation:pop .22s var(--ease-out)}.sheet.narrow{width:min(540px,calc(100vw - 48px))}}
+.sheet .filters{gap:8px}
+
+/* detalhe */
+.detail{display:grid;gap:20px}
+@media (min-width:760px){.detail{grid-template-columns:300px minmax(0,1fr);align-items:start;gap:32px}}
+.dphoto{position:relative;aspect-ratio:4/5;border-radius:18px;background:var(--tile);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;max-height:46dvh;margin-inline:auto;width:100%;padding-top:6%}
+.dphoto.multi{max-height:34dvh}
+@media (min-width:760px){.dphoto,.dphoto.multi{max-height:none;position:sticky;top:0}}
+.dphoto .bottles{height:86%;bottom:4%}
+.dphoto .bottles img{transition:opacity .2s,scale .2s}
+.dphoto .bottles img.dim{opacity:.35;scale:.94}
+.dphoto .flag{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;overflow:hidden;z-index:3}
+.dphoto .flag svg{width:100%;height:100%;display:block}
+.dphoto .stamp{position:absolute;inset:auto 0 42% 0;margin:auto;width:max-content;rotate:-8deg;z-index:4;border:3px solid var(--wine-ink);color:var(--wine-ink);font-weight:800;font-size:20px;padding:2px 12px;border-radius:8px;background:color-mix(in srgb,var(--surface) 70%,transparent)}
+.dinfo{display:grid;gap:14px;min-width:0}
+.dkind{display:flex;align-items:center;gap:8px;font-size:var(--s-body);color:var(--muted)}
+.dkind .dots{display:inline-flex}
+.dkind .dot+.dot{margin-left:-3px}
+.dinfo h3{margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(28px,3vw,36px);line-height:1.05;color:var(--wine-ink);text-wrap:balance}
+.dinfo .producer{font-size:var(--s-small);color:var(--muted);margin-top:-8px}
+.dprice{display:flex;align-items:baseline;gap:10px}
+.dprice .price{font-size:30px}
+.dprice .vol{font-size:var(--s-small);color:var(--muted)}
+.opt-h{margin:0;font-size:var(--s-body);font-weight:600}
+.fgroup{display:grid;gap:10px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:10px 20px;margin:0;font-size:var(--s-body);background:var(--surface-2);border-radius:var(--r);padding:16px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+.facts .flag-s{width:18px;height:18px;border-radius:50%;overflow:hidden;display:inline-block}
+.facts .flag-s svg{width:100%;height:100%;display:block}
+.desc{margin:0;font-size:var(--s-body);line-height:1.65;white-space:pre-line;max-width:62ch}
+.qty{display:inline-flex;align-items:center;background:var(--surface);border-radius:999px;overflow:hidden;flex:none;box-shadow:inset 0 0 0 1px var(--line)} /* taste-skill-ignore: contorno do controle de quantidade (campo de formulário) */
+.qty button{border:0;background:none;width:46px;height:48px;font-size:20px;font-weight:600}
+.qty button:hover{background:var(--surface-2)}
+.qty output{min-width:30px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* pedido */
+.bagbar{position:fixed;z-index:25;left:0;right:0;bottom:0;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));pointer-events:none}
+.bagbar button{pointer-events:auto;width:100%;max-width:520px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;border-radius:999px;padding:16px 24px;background:var(--wine);color:var(--cream);font-weight:700;font-size:var(--s-body);box-shadow:0 10px 30px rgba(102,16,41,.35);transition:background .2s,scale .2s var(--ease-out)} /* taste-skill-ignore: barra do pedido fixa, flutua sobre o conteúdo */
+.bagbar button:hover{background:var(--wine-2)}
+.bagbar button:active{scale:.98}
+.bagbar .total{font-variant-numeric:tabular-nums}
+.bagline{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0}
+.bagline img{height:64px;width:48px;object-fit:contain}
+.bagline .t{font-weight:600;font-size:var(--s-body);line-height:1.25}
+.bagline .s{font-size:var(--s-small);color:var(--muted)}
+.bagtotal{display:flex;justify-content:space-between;align-items:baseline;padding-top:16px;font-weight:700}
+.bagpay{margin:10px 0 0;font-size:var(--s-small);color:var(--muted);line-height:1.45}
