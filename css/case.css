@@ -20,7 +20,9 @@ html.case-lock,html.case-lock body{overflow:hidden}
 
 /* Hero */
 .case__hero{display:flex;flex-direction:column;gap:40px}
-.case__cover{display:flex;flex-direction:column;align-items:center;gap:24px;padding:64px 64px 32px;background:linear-gradient(147deg,#037FF7 0%,#0649C9 71.4%)}
+.case__cover{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;gap:24px;padding:64px 64px 32px;background:var(--cover)}
+/* Brand pattern laid over the cover (Jane Vinhos: wine glasses, overlay 15%) */
+.case__pattern{position:absolute;inset:0;z-index:-1;background:center/cover no-repeat;opacity:.15;mix-blend-mode:overlay;pointer-events:none}
 .case__shot{width:100%;max-width:1040px;height:auto;aspect-ratio:1440/668;object-fit:cover;border-radius:12px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
 .case__chips{display:flex;width:100%}
 .case__chip{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--color-bg-primary);font-size:12px}
@@ -85,6 +87,9 @@ html.case-lock,html.case-lock body{overflow:hidden}
 .case__screen{height:720px;max-height:75vh;background:#fff}
 .case__live{display:block;width:100%;height:100%;border:0}
 .case__live[hidden],.case__still[hidden]{display:none}
+/* Phone-width view of the live site */
+.case__screen--phone{background:var(--color-bg-surface);display:flex;justify-content:center;padding:24px 0}
+.case__screen--phone .case__live{width:390px;max-width:calc(100% - 32px);border-radius:24px;box-shadow:0 0 0 8px #000,0 20px 50px rgba(0,0,0,.5)}
 .case__still{height:100%;overflow-y:auto;overscroll-behavior:contain}
 .case__still img{width:100%}
 
@@ -97,9 +102,7 @@ html.case-lock,html.case-lock body{overflow:hidden}
 .case__type li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--color-border-default);font-size:14px}
 .case__palette{display:flex;flex-direction:column;gap:16px}
 .case__swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.case__swatches div{display:flex;flex-direction:column;justify-content:flex-end;gap:2px;height:128px;padding:0 14px 14px;border-radius:12px;background:var(--c);font-size:12px;color:#fff}
-.case__swatches--light div{color:#232F3F}
-.case__swatches--light div.dark{color:#fff}
+.case__swatches div{display:flex;flex-direction:column;justify-content:flex-end;gap:2px;height:128px;padding:0 14px 14px;border-radius:12px;background:var(--c);font-size:12px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
 .case__tokens{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 
 /* What I did */
