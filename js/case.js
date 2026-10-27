@@ -10,7 +10,7 @@ const CASE_CONF={
   nax:{img:'assets/cases/nax/',live:'projects/nax-seguros/index.html',top:'topo',
     cover:'linear-gradient(147deg,#037FF7 0%,#0649C9 71.4%)',aa:'"Poppins",var(--font)'},
   jane:{img:'assets/cases/jane/',live:'projects/jane-vinhos/index.html',top:'vinhos',
-    cover:'linear-gradient(147deg,#661029 0%,#4F0B1F 71.4%)',pattern:'assets/cases/jane/tacas.png',aa:'"Gloock",Georgia,serif',aaW:400}
+    cover:'linear-gradient(147deg,#661029 0%,#4F0B1F 71.4%)',pattern:'assets/cases/jane/tacas.png',heroRatio:'1392/256',phoneThumbs:true,aa:'"Gloock",Georgia,serif',aaW:400}
 };
 
 const CASES={
@@ -88,13 +88,13 @@ const CASES={
       intro:"O desafio era manter o charme do catálogo e resolver o que o PDF não fazia: achar um vinho por preço, tipo, país ou uva, mostrar o que esgotou sem refazer o arquivo e deixar a própria Jane atualizar preços, fotos e estoque sem depender de ninguém.",
       tags:["Product Design","UX/UI","Catálogo","Web + Mobile"],
       flow:{t:"Do PDF ao pedido",d:"Cinco telas que mostram o caminho do catálogo antigo até o pedido enviado, e como a Jane mantém tudo atualizado.",
-        screens:[["pdf","Catálogo em PDF","O ponto de partida: uma página por vinho"],["catalog","Catálogo","Busca, indicações e prateleiras por tipo"],["detail","Detalhes do vinho","Descrição, harmonização e quantidade"],["bag","Meu pedido","Resumo, total e envio pelo WhatsApp"],["editor","Modo edição","A Jane cadastra vinhos e cola as fotos"]]},
+        screens:[["pdf","Catálogo em PDF","O ponto de partida: uma página por vinho"],["catalog","Catálogo","Busca, indicações da Jane e todos os vinhos"],["detail","Detalhes do vinho","Descrição, harmonização e quantidade"],["bag","Meu pedido","Resumo, total e envio pelo WhatsApp"],["editor","Modo edição","A Jane cadastra vinhos e cola as fotos"]]},
       journey:{t:"Arquitetura e jornada",d:"Como os vinhos foram organizados e como cliente e Jane usam o mesmo catálogo.",
-        rows:[["Catálogo",[["entry","Link do catálogo"],["step","Indicações da Jane"],["step","Prateleiras por tipo"],["step","Filtros e busca"]],true],
+        rows:[["Catálogo",[["entry","Link do catálogo"],["step","Indicações da Jane"],["step","Vinhos"],["step","Filtros e busca"]],true],
               ["Pedido",[["entry","Abrir um vinho"],["step","Escolher quantidade"],["step","Meu pedido"],["done","Enviar pelo WhatsApp"]],true],
               ["Bastidores",[["help","Modo edição"],["help","Colar foto e tirar o fundo"],["help","Marcar esgotado"],["help","Publicar"]],false]],
         legend:[["entry","Ponto de entrada"],["step","Seção ou etapa"],["done","Pedido enviado"],["help","Ferramenta da Jane"]],
-        decisions:[["Prateleiras no lugar de páginas","Os vinhos ficam agrupados por tipo, com as indicações da Jane no topo, e os filtros de preço, tipo, doçura, país e uva respondem na hora."],
+        decisions:[["Uma lista no lugar de páginas","As indicações da Jane abrem o catálogo e, logo abaixo, todos os vinhos ficam numa lista só, que os filtros de preço, tipo, doçura, país e uva refinam na hora."],
                    ["Pedido onde a conversa já acontece","Em vez de um checkout, o pedido vira uma mensagem pronta no WhatsApp da Jane, com nomes, quantidades e total."],
                    ["A Jane atualiza sozinha","No modo edição ela cadastra rótulos, cola a foto da garrafa, tira o fundo e marca o que esgotou, sem refazer nenhum arquivo."]]},
       ui:{t:"Interfaces",d:"O catálogo publicado, para navegar de verdade: filtre, abra um vinho e monte um pedido.",
@@ -102,13 +102,13 @@ const CASES={
         live:"Abrir o catálogo ao vivo"},
       visual:{t:"Linguagem visual",d:"Bordô e creme vindos da marca da Jane, tipografia com cara de rótulo e um tema sempre claro, com bom contraste para um público mais velho.",
         type:"Tipografia",pair:"Gloock + Inter",pairD:"Gloock nos títulos, com cara de rótulo; Inter no texto e nos preços",
-        scale:[["Display","Gloock · 36–80"],["Título de prateleira","Gloock · 32–50"],["Nome do vinho","Inter · 17–19"],["Corpo","Inter · 16"],["Pequeno","Inter · 14"]],
+        scale:[["Display","Gloock · 36–80"],["Título de seção","Gloock · 32–50"],["Nome do vinho","Inter · 17–19"],["Corpo","Inter · 16"],["Pequeno","Inter · 14"]],
         main:"Paleta principal",neutral:"Neutros e superfícies",
         palette:[["#661029","Wine · marca"],["#7D1A36","Wine 2 · tinto"],["#4F0B1F","Wine deep · rodapé"],["#B8916A","Tan · detalhes"]],
         neutrals:[["#F3EBD8","Cream · logo"],["#FAF9F7","Fundo"],["#DCD7D8","Linha"],["#2B2121","Ink · texto"]],
         tokens:"Tokens",tokenRows:[["Raio",["12 · campos e folhas","pílula · botões"]],["Tipos de vinho",["Tinto","Branco","Rosé","Verde","Espumante","Licor"]]],
         components:"Componentes",comps:["Aba","Botão","Busca","Pílula","Caixa de preço","Atalho de prateleira","Ordenar","Opção de filtro","Cabeçalho de filtro","Cabeçalho de prateleira","Barra do pedido","Card de vinho","Rodapé"]},
-      did:{t:"O que eu fiz",items:["Arquitetura do catálogo: indicações da Jane no topo e prateleiras por tipo de vinho.","Filtros por preço, tipo, doçura, país e uva, com contagem e opção de ocultar esgotados.","Card de vinho com a garrafa em destaque, bandeira do país, volume e preço legível.","Pedido montado no site e enviado pronto para o WhatsApp da Jane.","Modo edição para a Jane cadastrar rótulos, colar fotos e tirar o fundo automaticamente.","Design system no Figma com os componentes do catálogo para desktop e mobile."]}
+      did:{t:"O que eu fiz",items:["Arquitetura do catálogo: indicações da Jane no topo e todos os vinhos logo abaixo.","Filtros por preço, tipo, doçura, país e uva, com contagem e opção de ocultar esgotados.","Card de vinho com a garrafa em destaque, bandeira do país, volume e preço legível.","Pedido montado no site e enviado pronto para o WhatsApp da Jane.","Modo edição para a Jane cadastrar rótulos, colar fotos e tirar o fundo automaticamente.","Design system no Figma com os componentes do catálogo para desktop e mobile."]}
     },
     en:{
       label:"Case 02 · Jane Vinhos",close:"Close",back:"Back to projects ↑",
@@ -119,13 +119,13 @@ const CASES={
       intro:"The challenge was to keep the catalog's charm and fix what the PDF couldn't do: find a wine by price, type, country or grape, show what's sold out without redoing the file, and let Jane update prices, photos and stock on her own.",
       tags:["Product Design","UX/UI","Catalog","Web + Mobile"],
       flow:{t:"From PDF to order",d:"Five screens showing the path from the old catalog to a sent order, and how Jane keeps everything up to date.",
-        screens:[["pdf","PDF catalog","The starting point: one page per wine"],["catalog","Catalog","Search, picks and shelves by type"],["detail","Wine details","Description, pairing and quantity"],["bag","My order","Summary, total and sending via WhatsApp"],["editor","Edit mode","Jane adds wines and pastes the photos"]]},
+        screens:[["pdf","PDF catalog","The starting point: one page per wine"],["catalog","Catalog","Search, Jane's picks and every wine"],["detail","Wine details","Description, pairing and quantity"],["bag","My order","Summary, total and sending via WhatsApp"],["editor","Edit mode","Jane adds wines and pastes the photos"]]},
       journey:{t:"Architecture & journey",d:"How the wines were organized and how customers and Jane use the same catalog.",
-        rows:[["Catalog",[["entry","Catalog link"],["step","Jane's picks"],["step","Shelves by type"],["step","Filters & search"]],true],
+        rows:[["Catalog",[["entry","Catalog link"],["step","Jane's picks"],["step","Wines"],["step","Filters & search"]],true],
               ["Order",[["entry","Open a wine"],["step","Choose quantity"],["step","My order"],["done","Send via WhatsApp"]],true],
               ["Behind the scenes",[["help","Edit mode"],["help","Paste photo, remove background"],["help","Mark sold out"],["help","Publish"]],false]],
         legend:[["entry","Entry point"],["step","Section or step"],["done","Order sent"],["help","Jane's tool"]],
-        decisions:[["Shelves instead of pages","Wines are grouped by type with Jane's picks on top, and the price, type, sweetness, country and grape filters respond instantly."],
+        decisions:[["One list instead of pages","Jane's picks open the catalog and every wine sits right below in a single list, which the price, type, sweetness, country and grape filters narrow down instantly."],
                    ["Ordering where the conversation already happens","Instead of a checkout, the order becomes a ready-made WhatsApp message to Jane, with names, quantities and total."],
                    ["Jane updates it herself","In edit mode she adds labels, pastes the bottle photo, removes the background and marks what sold out, without redoing any file."]]},
       ui:{t:"Interfaces",d:"The published catalog, to really browse: filter, open a wine and build an order.",
@@ -133,13 +133,13 @@ const CASES={
         live:"Open the live catalog"},
       visual:{t:"Visual language",d:"Burgundy and cream from Jane's brand, label-like typography and an always-light theme with strong contrast for an older audience.",
         type:"Typography",pair:"Gloock + Inter",pairD:"Gloock for headings, like a wine label; Inter for body copy and prices",
-        scale:[["Display","Gloock · 36–80"],["Shelf title","Gloock · 32–50"],["Wine name","Inter · 17–19"],["Body","Inter · 16"],["Small","Inter · 14"]],
+        scale:[["Display","Gloock · 36–80"],["Section title","Gloock · 32–50"],["Wine name","Inter · 17–19"],["Body","Inter · 16"],["Small","Inter · 14"]],
         main:"Main palette",neutral:"Neutrals & surfaces",
         palette:[["#661029","Wine · brand"],["#7D1A36","Wine 2 · red"],["#4F0B1F","Wine deep · footer"],["#B8916A","Tan · details"]],
         neutrals:[["#F3EBD8","Cream · logo"],["#FAF9F7","Background"],["#DCD7D8","Line"],["#2B2121","Ink · text"]],
         tokens:"Tokens",tokenRows:[["Radius",["12 · fields & sheets","pill · buttons"]],["Wine types",["Red","White","Rosé","Vinho Verde","Sparkling","Liqueur"]]],
         components:"Components",comps:["Tab","Button","Search","Pill","Price box","Shelf shortcut","Sort","Filter option","Filter header","Shelf header","Order bar","Wine card","Footer"]},
-      did:{t:"What I did",items:["Catalog architecture: Jane's picks on top and shelves by wine type.","Filters by price, type, sweetness, country and grape, with counts and an option to hide sold-out wines.","Wine card with the bottle up front, country flag, volume and a readable price.","Order built on the site and sent ready-made to Jane's WhatsApp.","Edit mode so Jane can add labels, paste photos and remove backgrounds automatically.","Design system in Figma with the catalog components for desktop and mobile."]}
+      did:{t:"What I did",items:["Catalog architecture: Jane's picks on top and every wine right below.","Filters by price, type, sweetness, country and grape, with counts and an option to hide sold-out wines.","Wine card with the bottle up front, country flag, volume and a readable price.","Order built on the site and sent ready-made to Jane's WhatsApp.","Edit mode so Jane can add labels, paste photos and remove backgrounds automatically.","Design system in Figma with the catalog components for desktop and mobile."]}
     }
   }
 };
@@ -163,8 +163,8 @@ function caseMarkup(id,c){
   </div>
   <div class="case__body">
     <header class="case__hero">
-      <div class="case__cover" style="--cover:${k.cover}">${k.pattern?`<i class="case__pattern" style="background-image:url(${k.pattern})" aria-hidden="true"></i>`:''}
-        <img class="case__shot" src="${k.img}hero.jpg" alt="${c.heroAlt}" width="1440" height="668">
+      <div class="case__cover" style="--cover:${k.cover}">${k.pattern?`<span class="case__pattern" aria-hidden="true"><img src="${k.pattern}" alt=""></span>`:''}
+        <img class="case__shot" src="${k.img}hero.jpg" alt="${c.heroAlt}"${k.heroRatio?` style="aspect-ratio:${k.heroRatio};max-width:100%"`:' width="1440" height="668"'}>
         <div class="case__chips"><span class="case__chip"><i aria-hidden="true"></i>${c.chip}</span></div>
       </div>
       <h2 class="display-l case__title" id="case-${id}-title">${c.title}</h2>
@@ -178,7 +178,7 @@ function caseMarkup(id,c){
 
     <section class="case__sec">
       ${sectionHead(c.flow.t,c.flow.d)}
-      <ol class="case__screens">${c.flow.screens.map((s,i)=>`
+      <ol class="case__screens${k.phoneThumbs?' case__screens--phone':''}">${c.flow.screens.map((s,i)=>`
         <li><img src="${k.img}thumb-${s[0]}.jpg" alt="${s[1]}" loading="lazy" width="600" height="743">
           <span class="case__num">${String(i+1).padStart(2,'0')}</span><strong>${s[1]}</strong><span class="caption muted">${s[2]}</span></li>`).join('')}
       </ol>
