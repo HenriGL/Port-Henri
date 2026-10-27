@@ -110,4 +110,5 @@ function applyLang(lang,revealed){
   document.querySelectorAll('.cover').forEach(el=>{el.dataset.view=t["cover.view"]});
   document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
   renderLists(t,revealed);
+  if(typeof renderCase==='function')renderCase(lang);
 }

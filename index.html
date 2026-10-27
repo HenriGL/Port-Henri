@@ -7,12 +7,13 @@
 <meta name="description" content="Henri Guasti — Product Designer com foco em UI & UX. Experiência, projetos selecionados, processo, ferramentas e formação.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/images/img-hero.png">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/case.css">
 <link rel="stylesheet" href="css/motion.css">
 </head>
 <body>
@@ -87,8 +88,8 @@
         </div>
         <div class="process">
           <article class="pbox reveal" data-speed="0"><div class="num">01</div><div><h3 class="h2" data-i18n="process.1.t">Pesquisa &amp; Definição</h3><p data-i18n="process.1.d">Começamos entendendo o problema, os usuários e os objetivos do negócio, do início ao fim.</p></div></article>
-          <article class="pbox reveal" style="--d:.3s" data-speed=".14"><div class="num">02</div><div><h3 class="h2" data-i18n="process.2.t">Ideação &amp; Design</h3><p data-i18n="process.2.d">Criamos fluxos claros e intuitivos e interfaces de alta fidelidade.</p></div></article>
-          <article class="pbox reveal" style="--d:.15s" data-speed=".07"><div class="num">03</div><div><h3 class="h2" data-i18n="process.3.t">Teste &amp; Implementação</h3><p data-i18n="process.3.d">Refinamos a solução final, testamos a usabilidade e entregamos os arquivos para o desenvolvimento.</p></div></article>
+          <article class="pbox reveal" data-speed=".22"><div class="num">02</div><div><h3 class="h2" data-i18n="process.2.t">Ideação &amp; Design</h3><p data-i18n="process.2.d">Criamos fluxos claros e intuitivos e interfaces de alta fidelidade.</p></div></article>
+          <article class="pbox reveal" style="--d:.2s" data-speed=".04"><div class="num">03</div><div><h3 class="h2" data-i18n="process.3.t">Teste &amp; Implementação</h3><p data-i18n="process.3.d">Refinamos a solução final, testamos a usabilidade e entregamos os arquivos para o desenvolvimento.</p></div></article>
         </div>
       </div>
     </section>
@@ -101,43 +102,15 @@
           <p class="body-m reveal-right" data-i18n="projects.desc">Uma seleção de cases em que pesquisa, estratégia e design de interface se uniram para resolver problemas reais — e mover os números que importam.</p>
         </div>
         <div class="projects">
-          <a class="card reveal" href="projects/nax-seguros/index.html" target="_blank" rel="noopener">
-            <div class="cover" style="--g:linear-gradient(127deg,#232F3F,#037FF7)"><span>01</span></div>
-            <div class="tags"><span class="tag">UX/UI</span><span class="tag">Web</span></div>
+          <!-- Opens the case modal (js/case.js); without JS it falls back to the live landing -->
+          <a class="card reveal" href="projects/nax-seguros/index.html" data-case-open="nax" aria-haspopup="dialog">
+            <div class="cover" style="--g:linear-gradient(139deg,#037FF7 0%,#0649C9 71.4%)"><span>01</span></div>
+            <div class="tags"><span class="tag">Landing Page</span><span class="tag">UX/UI</span></div>
             <h3 class="h2" data-i18n="nax.t">NAX Seguros — Seguro Residencial</h3>
             <p class="body-m muted" data-i18n="nax.d">Landing page de seguro residencial com planos fáceis de comparar, benefícios em destaque e prova social, com ritmo de cores pensado para guiar a leitura até a contratação.</p>
-            <span class="link"><span data-i18n="link.project">Ver projeto</span> <span class="arrow">→</span></span>
-          </a>
-          <a class="card reveal" href="#" style="--d:.15s">
-            <div class="cover" style="--g:linear-gradient(127deg,#410001,#A51700)"><span>02</span></div>
-            <div class="tags"><span class="tag" data-i18n="tag.product">Design de Produto</span><span class="tag">B2B SaaS</span></div>
-            <h3 class="h2" data-i18n="p1.t">Redesign de Dashboard Fintech</h3>
-            <p class="body-m muted" data-i18n="p1.d">Repensando uma plataforma financeira B2B complexa: nova arquitetura de informação, visualização de dados mais clara e um caminho mais rápido para decisões importantes.</p>
-            <span class="link"><span data-i18n="link.case">Ver estudo de caso</span> <span class="arrow">→</span></span>
-          </a>
-          <a class="card reveal" href="#">
-            <div class="cover" style="--g:linear-gradient(127deg,#2D1600,#D47B00)"><span>03</span></div>
-            <div class="tags"><span class="tag" data-i18n="tag.research">Pesquisa UX</span></div>
-            <h3 class="h2" data-i18n="p2.t">Experiência de App de Delivery</h3>
-            <p class="body-m muted" data-i18n="p2.d">Redesign completo do fluxo de pedidos de um app de delivery de comida, da descoberta e pesquisa até interfaces mobile de alta fidelidade.</p>
-            <span class="link"><span data-i18n="link.case">Ver estudo de caso</span> <span class="arrow">→</span></span>
-          </a>
-          <a class="card reveal" href="#" style="--d:.15s">
-            <div class="cover" style="--g:linear-gradient(127deg,#1E1E1E,#930005)"><span>04</span></div>
-            <div class="tags"><span class="tag">Design System</span><span class="tag">Web</span></div>
-            <h3 class="h2" data-i18n="p3.t">Design System Escalável</h3>
-            <p class="body-m muted" data-i18n="p3.d">Criação de um design system baseado em tokens no Figma que unificou três produtos e reduziu pela metade o tempo de handoff entre design e desenvolvimento.</p>
-            <span class="link"><span data-i18n="link.case">Ver estudo de caso</span> <span class="arrow">→</span></span>
-          </a>
-          <a class="card reveal" href="#">
-            <div class="cover" style="--g:linear-gradient(127deg,#690003,#FF5545)"><span>05</span></div>
-            <div class="tags"><span class="tag">Branding</span><span class="tag">Framer</span></div>
-            <h3 class="h2" data-i18n="p4.t">Marca &amp; Site em Framer</h3>
-            <p class="body-m muted" data-i18n="p4.d">Identidade visual e um site de alta performance construído em Framer para um estúdio criativo, com motion e interações desenvolvidos internamente.</p>
             <span class="link"><span data-i18n="link.case">Ver estudo de caso</span> <span class="arrow">→</span></span>
           </a>
         </div>
-        <div class="center reveal"><a class="btn" href="#"><span data-i18n="btn.all">Ver todos os projetos</span> <span class="arrow">→</span></a></div>
       </div>
     </section>
 
@@ -199,8 +172,12 @@
   </div>
 </main>
 
+<!-- CASE MODAL — content rendered by js/case.js -->
+<div class="case" id="case-nax" data-case="nax" role="dialog" aria-modal="true" aria-labelledby="case-nax-title" tabindex="-1" data-lenis-prevent hidden></div>
+
 <script src="js/vendor/lenis.min.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/case.js"></script>
 <script src="js/main.js"></script>
 <script src="js/scroll.js"></script>
 </body>

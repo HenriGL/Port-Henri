@@ -24,6 +24,10 @@ function checkReveals(){
   pending=pending.filter(el=>{
     if(!el.isConnected)return false;
     if(el.getBoundingClientRect().top>limit)return true;
+    // Process steps reveal in reading order: step 03 sits on the first row,
+    // so it waits until step 02 (second row) has appeared
+    const prev=el.classList.contains('pbox')&&el.previousElementSibling;
+    if(prev&&!prev.classList.contains('in'))return true;
     el.classList.add('in');
     if(el.classList.contains('stat'))countUp(el);
     return false;

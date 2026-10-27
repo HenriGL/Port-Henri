@@ -49,8 +49,6 @@ section{padding:96px var(--gutter)}
 .xp__line{position:absolute;top:45px;bottom:0;left:calc(var(--dot-x) - .5px);width:1px;background:var(--color-border-default);pointer-events:none}
 .xp__line::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--color-text-brand),#fff);transform:scaleY(var(--p));transform-origin:top}
 .xrow{display:grid;grid-template-columns:300px 12px 1fr auto;gap:32px;align-items:start;padding:32px 0;border-top:1px solid var(--color-border-default);position:relative}
-.xrow::before{content:"";position:absolute;top:-1px;left:0;height:1px;width:100%;background:var(--color-text-brand);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
-.xrow:hover::before{transform:scaleX(1)}
 .xrow__when{display:flex;flex-direction:column;gap:4px;padding-top:9px;color:var(--color-text-tertiary)}
 .xrow__when .body-s{color:inherit}
 .xrow__dot{position:relative;z-index:1;width:12px;height:12px;margin-top:13px;border-radius:50%;background:var(--color-bg-primary);border:1px solid var(--color-border-default);
